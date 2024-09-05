@@ -12,11 +12,14 @@ public:
             return {};
         }
         
-        auto [q,r] = div(sumN,n);
-        vector<int>v(n,q);  //this to fill all the victor with sumN/n value automatic
-        
-        fill(v.begin(),v.begin()+r,q+1); //for the remaining we will replace it with a bigger value
-        
+        vector<int>v(n);
+        int q = sumN/n , r = sumN%n;
+        for(int i = 0 ; i<n ; i++){
+            v[i]=q;
+        }
+        for(int i = 0 ; i<r ; i++){
+            v[i]=q+1;
+        }
         return v;
         
     }
